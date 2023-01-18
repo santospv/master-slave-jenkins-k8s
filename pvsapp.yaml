@@ -1,0 +1,46 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pipeline-demo
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pvsapp
+  name: pvsapp
+  namespace: pipeline-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pvsapp
+  template:
+    metadata:
+      labels:
+        app: pvsapp
+    spec:
+      containers:
+      - image: santospv08/app-apache-docker:<TAG>
+        imagePullPolicy: Always
+        name: pvsapp
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pvsapp
+  name: pvsapp
+  namespace: pipeline-demo
+spec:
+  ports:
+  - nodePort: 32223
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: pvsapp
+  type: LoadBalancer
