@@ -28,13 +28,13 @@ spec:
         ports:
         - containerPort: 8080
         - containerPort: 50000 
-        resources:
-          limits:
-            cpu: "3"
-            memory: "12Gi"
-          requests:
-            cpu: "2"
-            memory: "8Gi"
+        # resources:
+        #   limits:
+        #     cpu: "1"
+        #     memory: "2Gi"
+        #   requests:
+        #     cpu: "1"
+        #     memory: "2Gi"
         livenessProbe:
           httpGet:
             path: "/login"
