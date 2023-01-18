@@ -9,31 +9,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: pvsapp
-  name: pvsapp
+    app: myapp
+  name: myapp
   namespace: pipeline-demo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pvsapp
+      app: myapp
   template:
     metadata:
       labels:
-        app: pvsapp
+        app: myapp
     spec:
       containers:
       - image: santospv08/app-apache-docker:<TAG>
         imagePullPolicy: Always
-        name: pvsapp
+        name: myapp
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: pvsapp
-  name: pvsapp
+    app: myapp
+  name: myapp
   namespace: pipeline-demo
 spec:
   ports:
@@ -42,5 +42,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: pvsapp
+    app: myapp
   type: LoadBalancer
