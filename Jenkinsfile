@@ -23,7 +23,7 @@ pipeline {
             sh '''
             /pvs/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=$REGISTRY:${BUILD_NUMBER}
+                             --destination=santospv08/app-apache-docker:${BUILD_NUMBER}
             '''
           }
         }
