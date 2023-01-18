@@ -18,10 +18,10 @@ pipeline {
 
     stage('Build & Push Image') {
       steps {
-        container('pvsContainer') {
+        container('kaniko') {
           script {
             sh '''
-            /pvs/executor --dockerfile `pwd`/Dockerfile \
+            /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
                              --destination=santospv08/app-apache-docker:${BUILD_NUMBER}
             '''
