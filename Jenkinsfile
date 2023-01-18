@@ -4,10 +4,6 @@ pipeline {
     ansiColor('xterm')
   }
   
-  environment {
-        REGISTRY = 'santospv08/app-apache-docker'
-  }
-
   agent {
     kubernetes {
       yamlFile 'builder.yaml'
