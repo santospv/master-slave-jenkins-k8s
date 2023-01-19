@@ -26,16 +26,16 @@ pipeline {
       }
     }
 
-    // stage('Deploy App to Kubernetes') {     
-    //   steps {
-    //     container('kubectl') {
-    //       withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-    //         sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" pvsapp.yaml'
-    //         sh 'kubectl apply -f pvsapp.yaml'
-    //       }
-    //     }
-    //   }
-    // }
+    stage('Deploy App to Kubernetes') {     
+      steps {
+        container('kubectl') {
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" pvsapp.yaml'
+            sh 'kubectl apply -f pvsapp.yaml'
+          }
+        }
+      }
+    }
   
   }
 }
