@@ -14,9 +14,6 @@ spec:
     command:
     - /busybox/cat
     tty: true
-  - name: gcloudsdk
-    image: google/cloud-sdk
-    tty: true
   volumes:
     - name: kaniko-secret
       secret:
