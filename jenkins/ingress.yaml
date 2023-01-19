@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-    name: pvsapp-ingress
+    name: jenkins-ingress
     namespace: jenkins
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
     ingressClassName: nginx
     rules:
-    - host: pvsapp.34.174.233.65.nip.io
+    - host: jenkins-svc.34.174.36.9.nip.io
       http: 
         paths:
         - path: /
           pathType: Prefix
           backend:
             service:
-              name: pvsapp
+              name: jenkins-svc
               port: 
                 number: 8080
