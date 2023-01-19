@@ -14,6 +14,9 @@ spec:
     command:
     - /busybox/cat
     tty: true
+  - name: gcloudsdk
+    image: google/cloud-sdk
+    tty: true
     volumeMounts:
       - name: kaniko-secret
         mountPath: /kaniko/.docker
