@@ -17,9 +17,6 @@ spec:
   - name: gcloudsdk
     image: google/cloud-sdk
     tty: true
-    volumeMounts:
-      - name: kaniko-secret
-        mountPath: /kaniko/.docker
   volumes:
     - name: kaniko-secret
       secret:
