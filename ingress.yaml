@@ -8,7 +8,7 @@ metadata:
 spec:
     ingressClassName: nginx
     rules:
-    - host: jenkins-svc.34.174.50.28.nip.io
+    - host: jenkins-svc.34.174.233.65.nip.io
       http: 
         paths:
         - path: /
@@ -16,5 +16,15 @@ spec:
           backend:
             service:
               name: jenkins
+              port: 
+                number: 8080
+    - host: pvsapp.34.174.233.65.nip.io
+      http: 
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: pvsapp
               port: 
                 number: 8080
