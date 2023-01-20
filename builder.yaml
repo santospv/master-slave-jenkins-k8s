@@ -10,8 +10,8 @@ spec:
   #   tty: true
   - name: kubectlkubectl
     image: kiwigrid/gcloud-kubectl-helm
-    command:
-    - /bin/cat
+    # command:
+    # - /bin/cat
     tty: true    
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
