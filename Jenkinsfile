@@ -30,6 +30,7 @@ pipeline {
       steps {
         container('kubectl') {
           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'kubectl get nodes'
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" pvsapp.yaml'
             sh 'kubectl apply -f pvsapp.yaml'
           }
