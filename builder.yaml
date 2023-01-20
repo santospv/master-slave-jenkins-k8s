@@ -5,9 +5,9 @@ metadata:
   namespace: jenkins	
 spec:
   containers:
-  # - name: gcloudsdk
-  #   image: google/cloud-sdk
-  #   tty: true
+  - name: gcloudsdk
+    image: google/cloud-sdk
+    tty: true
   - name: kubectl
     image: joshendriks/alpine-k8s
     command:
