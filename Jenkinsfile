@@ -12,6 +12,18 @@ pipeline {
 
   stages {
 
+    stage("git checkout"){
+      steps{
+        script{
+        git(
+            url: 'https://github.com/santospv/master-slave-jenkins-k8s.git',
+            credentialsId: 'git-token',
+            branch: 'main'
+          )
+       }
+      }
+    }
+   
     stage('Kaniko Build & Push Image') {
       steps {
         container('kaniko') {
