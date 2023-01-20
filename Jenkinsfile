@@ -29,6 +29,7 @@ pipeline {
     stage('Deploy App to Kubernetes') {     
       steps {
         container('kubectlkubectl') {
+          script {
           // withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
             sh 'gcloud auth activate-service-account --key-file=serviceaccount.json'
             sh 'gcloud container clusters get-credentials pvs-devops-iac-gke --zone us-south1-c --project pvs-devops-iac'
@@ -36,6 +37,7 @@ pipeline {
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" pvsapp.yaml'
             sh 'kubectl apply -f pvsapp.yaml'
           // }
+          }
         }
       }
     }
