@@ -5,11 +5,11 @@ metadata:
   namespace: jenkins	
 spec:
   containers:
-  - name: gcloudsdk
-    image: google/cloud-sdk
-    tty: true
-  - name: kubectl
-    image: joshendriks/alpine-k8s
+  # - name: gcloud_kubectl
+  #   image: kiwigrid/gcloud-kubectl-helm
+  #   tty: true
+  - name: kubectlkubectl
+    image: kiwigrid/gcloud-kubectl-helm
     command:
     - /bin/cat
     tty: true    
