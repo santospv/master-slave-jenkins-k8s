@@ -45,8 +45,8 @@ controller:
   # When enabling LDAP or another non-Jenkins identity source, the built-in admin account will no longer exist.
   # If you disable the non-Jenkins identity store and instead use the Jenkins internal one,
   # you should revert controller.adminUser to your preferred admin user:
-  adminUser: "admin"
-  adminPassword: "admin"
+  adminUser: "santospv"
+  adminPassword: "santospv"
   admin:
     existingSecret: ""
     userKey: jenkins-admin-user
