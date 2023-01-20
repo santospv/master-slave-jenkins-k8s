@@ -9,7 +9,7 @@ spec:
   #   image: kiwigrid/gcloud-kubectl-helm
   #   tty: true
   - name: kubectlkubectl
-    image: kiwigrid/gcloud-kubectl-helm
+    image: kleverio/gcloud-kubectl
     # command:
     # - /bin/cat
     tty: true    
