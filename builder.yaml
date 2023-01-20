@@ -4,14 +4,9 @@ metadata:
   name: kaniko
   namespace: jenkins	
 spec:
-  containers:
-  # - name: gcloud_kubectl
-  #   image: kiwigrid/gcloud-kubectl-helm
-  #   tty: true
-  - name: kubectlkubectl
+  containers:  
+  - name: gcloud-kubectl
     image: kleverio/gcloud-kubectl:v0.0.1
-    # command:
-    # - /bin/cat
     tty: true    
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug

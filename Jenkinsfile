@@ -12,18 +12,6 @@ pipeline {
 
   stages {
 
-    stage("git checkout"){
-      steps{
-        script{
-        git(
-            url: 'https://github.com/santospv/master-slave-jenkins-k8s.git',
-            credentialsId: 'git-token',
-            branch: 'main'
-          )
-       }
-      }
-    }
-   
     stage('Kaniko Build & Push Image') {
       steps {
         container('kaniko') {
@@ -40,7 +28,7 @@ pipeline {
 
     stage('Deploy App to Kubernetes') {     
       steps {
-        container('kubectlkubectl') {
+        container('gcloud-kubectl') {
          
             withCredentials([file(credentialsId: 'mykubeconfig', variable: 'GC_KEY')]) {
 
